@@ -20,17 +20,12 @@ public class BuyService {
   }
 
   public void offer(long teamId, long playerId) {
-    Optional<Team> optional = teamRepository.findById(teamId);
-    Team team = null;
-    if (optional.isPresent()) {
-      team = optional.get();
-    }
-    Optional<Player> players = playerRepository.findById(playerId);
-    Player player = null;
-    if (optional.isPresent()) {
-      player = players.get();
-    }
-    long price = 100000L * player.getExperience() / player.getYearsOld();
+    Optional<Team> optionalTeam = teamRepository.findById(teamId);
+    Team team = optionalTeam.get();
+    Optional<Player> optionalPlayer = playerRepository.findById(playerId);
+    Player player = optionalPlayer.get();
+
+    long price = 100000L * Integer.parseInt(player.getExperience()) / Integer.parseInt(player.getYearsOld());
     if (team.getBalance() >= price) {
       Team temp = player.getTeam();
       temp.setBalance(temp.getBalance() + price);

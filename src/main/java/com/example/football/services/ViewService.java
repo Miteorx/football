@@ -4,7 +4,7 @@ import com.example.football.models.Player;
 import com.example.football.models.Team;
 import com.example.football.repositories.PlayerRepository;
 import com.example.football.repositories.TeamRepository;
-import com.example.football.services.exceptions.TeamDoesntExist;
+import com.example.football.exceptions.TeamDoesntExist;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;

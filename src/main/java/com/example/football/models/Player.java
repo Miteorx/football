@@ -14,14 +14,23 @@ public class Player {
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "id", nullable = false)
   private long id;
-
   private String name;
-
-  private int yearsOld;
-  private int experience;
-
+  private String yearsOld;
+  private String experience;
   @ManyToOne
   private Team team;
+
+  public Player() {
+  }
+
+  public Player(long id, String name, String yearsOld, String experience,
+      Team team) {
+    this.id = id;
+    this.name = name;
+    this.yearsOld = yearsOld;
+    this.experience = experience;
+    this.team = team;
+  }
 
   public Team getTeam() {
     return team;
@@ -47,19 +56,19 @@ public class Player {
     this.name = name;
   }
 
-  public int getYearsOld() {
+  public String getYearsOld() {
     return yearsOld;
   }
 
-  public void setYearsOld(int yearsOld) {
+  public void setYearsOld(String yearsOld) {
     this.yearsOld = yearsOld;
   }
 
-  public int getExperience() {
+  public String getExperience() {
     return experience;
   }
 
-  public void setExperience(int experience) {
+  public void setExperience(String experience) {
     this.experience = experience;
   }
 }

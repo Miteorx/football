@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface PlayerRepository extends CrudRepository<Player, Long> {
   List<Player> findPlayersByTeam(Team team);
-  @Query("from Player p join p.team Team where Team.id !=:id")
+  @Query("from Player p join p.team Team where Team.id !=:id or Team.id=null")
   List<Player> findPlayersByOtherTeam(@Param("id") long id);
 }

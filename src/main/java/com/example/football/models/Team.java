@@ -23,6 +23,16 @@ public class Team {
       cascade = CascadeType.ALL)
   private List<Player> players;
 
+  public Team() {
+  }
+  public Team(long id, String name, long balance,
+      List<Player> players) {
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
+    this.players = players;
+  }
+
   public long getId() {
     return id;
   }
